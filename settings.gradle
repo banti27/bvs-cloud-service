@@ -1,0 +1,4 @@
+rootProject.name = 'bvs-cloud-service'
+
+include 'bvs-user-service'
+include 'bvs-storage-service'

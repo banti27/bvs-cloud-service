@@ -1,0 +1,35 @@
+// bvs-common-lib is a shared library module
+// It doesn't need spring-boot plugin as it's not a runnable application
+
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    // Spring Boot dependencies (without the plugin)
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    // Lombok for reducing boilerplate
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    // JSON processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    
+    // Utilities
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+    implementation 'commons-codec:commons-codec:1.16.0'
+}
+
+// This module is a library, not an application
+// So we disable the bootJar task
+tasks.named('bootJar') {
+    enabled = false
+}
+
+tasks.named('jar') {
+    enabled = true
+}

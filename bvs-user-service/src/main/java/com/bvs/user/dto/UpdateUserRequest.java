@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateUserRequest {
+public class UpdateUserRequest {
     
     @NotBlank(message = "Username is required")
     @Size(max = 25, message = "Username must not exceed 25 characters")
@@ -24,7 +24,7 @@ public class CreateUserRequest {
     @Email(message = "Email must be a valid email address")
     private String email;
     
-    @NotBlank(message = "Password is required")
+    // Password is optional for updates
     @ValidPassword
     private String password;
     

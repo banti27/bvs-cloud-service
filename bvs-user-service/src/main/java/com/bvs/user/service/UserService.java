@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bvs.user.dto.CreateUserRequest;
+import com.bvs.user.dto.UpdateUserRequest;
 import com.bvs.user.dto.UserDTO;
 import com.bvs.user.entity.User;
 import com.bvs.user.entity.UserStatus;
@@ -103,7 +104,7 @@ public class UserService {
      * Update user
      */
     @Transactional
-    public UserDTO updateUser(String id, CreateUserRequest request) {
+    public UserDTO updateUser(String id, UpdateUserRequest request) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("id", id));
 
@@ -123,7 +124,7 @@ public class UserService {
         user.setLastName(request.getLastName());
 
         // Only update password if provided and different
-        if (request.getPassword() != null && !request.getPassword().isEmpty()) {
+        if (request.getPassword() != null && !request.getPassword().trim().isEmpty()) {
             user.setPassword(passwordEncoder.encode(request.getPassword()));
         }
 

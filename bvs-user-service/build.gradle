@@ -1,3 +1,18 @@
 dependencies {
+    // BVS Common Library
+    implementation project(':bvs-common-lib')
+    
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'  // For BCrypt password encoder
+    implementation 'org.springframework.boot:spring-boot-starter-validation' // For Bean Validation
+    
+    // Database drivers (can switch between them)
+    runtimeOnly 'com.h2database:h2'                          // H2 in-memory database for development
+    runtimeOnly 'org.postgresql:postgresql'                   // PostgreSQL
+    runtimeOnly 'com.mysql:mysql-connector-j'                 // MySQL
+    
+    // Optional: for database migration
+    // implementation 'org.flywaydb:flyway-core'
+    // implementation 'org.flywaydb:flyway-mysql'
 }

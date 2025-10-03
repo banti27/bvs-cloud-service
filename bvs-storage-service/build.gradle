@@ -1,4 +1,7 @@
 dependencies {
+    // BVS Common Library
+    implementation project(':bvs-common-lib')
+    
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3:3.1.1'
     implementation 'software.amazon.awssdk:s3:2.21.46'

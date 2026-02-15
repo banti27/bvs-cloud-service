@@ -133,8 +133,8 @@ The service handles the following error scenarios:
 
 ## Technology Stack
 
-- Java 21
-- Spring Boot 3.3.4
+- Java 21 (configured in parent build.gradle)
+- Spring Boot 3.3.4 (configured in parent build.gradle)
 - Spring Web
 - Spring Validation
 - Lombok
